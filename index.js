@@ -99,6 +99,17 @@ client.connect((err) => {
       .then((documents) => res.send(documents.deletedCount > 0));
   });
 
+  app.patch("/updateOrders/:id", (req, res) => {
+    console.log(req.body.status);
+    console.log(req.params.id);
+    orderCollection
+      .updateOne({ _id: req.params.id }, { $set: { status: req.body.status } })
+      .then((result) => {
+        console.log(result);
+        res.send(result.modifiedCount > 0);
+      });
+  });
+
   app.post("/isAdmin", (req, res) => {
     const email = req.body.email;
     adminCollection.find({ email: email }).toArray((err, admin) => {
