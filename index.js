@@ -21,10 +21,10 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 });
 client.connect((err) => {
-  const serviceCollection = client.db("autorepair").collection("services");
-  const reviewCollection = client.db("autorepair").collection("reviews");
-  const orderCollection = client.db("autorepair").collection("orders");
-  const adminCollection = client.db("autorepair").collection("admin");
+  const serviceCollection = client.db("iFocus").collection("services");
+  const reviewCollection = client.db("iFocus").collection("reviews");
+  const orderCollection = client.db("iFocus").collection("orders");
+  const adminCollection = client.db("iFocus").collection("admin");
   // perform actions on the collection object
   console.log("Database Connected");
 
